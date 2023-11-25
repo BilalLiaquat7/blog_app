@@ -180,3 +180,111 @@ app/views/users/index.html.erb:3
   [1m[36mActiveRecord::InternalMetadata Load (2.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
   [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(892336952976185220)[0m
   [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2023-11-26 01:48:05 +0500
+  [1m[36mActiveRecord::SchemaMigration Load (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (Duration: 1.3ms | Allocations: 1598)
+  Rendered layout layouts/application.html.erb (Duration: 1.5ms | Allocations: 1724)
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.0ms | Allocations: 13660)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    1: <div class="users container">
+    2:   <ul class="user_list col">
+    3:     <% @users.each do |user| %>
+    4:       <li class="user_item row">
+    5:         <div class="u_img">
+    6:           <img src=<%= user.photo %> alt="u_img">
+  
+app/views/users/index.html.erb:3
+Started GET "/" for 127.0.0.1 at 2023-11-26 01:50:32 +0500
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (Duration: 0.7ms | Allocations: 1124)
+  Rendered layout layouts/application.html.erb (Duration: 0.8ms | Allocations: 1216)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 3972)
+
+
+  
+ActionView::Template::Error (undefined method `set_user' for nil:NilClass):
+    1: <div class="users container">
+    2:   <ul class="user_list col">
+    3:     <% @users.set_user do |user| %>
+    4:       <li class="user_item row">
+    5:         <div class="u_img">
+    6:           <img src=<%= user.photo %> alt="u_img">
+  
+app/views/users/index.html.erb:3
+Started GET "/" for 127.0.0.1 at 2023-11-26 01:52:20 +0500
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 1121)
+  Rendered layout layouts/application.html.erb (Duration: 0.7ms | Allocations: 1213)
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.0ms | Allocations: 3968)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    1: <div class="users container">
+    2:   <ul class="user_list col">
+    3:     <% @users.each do |user| %>
+    4:       <li class="user_item row">
+    5:         <div class="u_img">
+    6:           <img src=<%= user.photo %> alt="u_img">
+  
+app/views/users/index.html.erb:3
+Started GET "/" for 127.0.0.1 at 2023-11-26 01:53:03 +0500
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (Duration: 0.9ms | Allocations: 1125)
+  Rendered layout layouts/application.html.erb (Duration: 1.0ms | Allocations: 1217)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms | Allocations: 3973)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    1: <div class="users container">
+    2:   <ul class="user_list col">
+    3:     <% @users.each do |user| %>
+    4:       <li class="user_item row">
+    5:         <div class="u_img">
+    6:           <img src=<%= user.photo %> alt="u_img">
+  
+app/views/users/index.html.erb:3
+Started GET "/" for 127.0.0.1 at 2023-11-26 01:53:04 +0500
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 967)
+  Rendered layout layouts/application.html.erb (Duration: 0.6ms | Allocations: 1058)
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 1313)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    1: <div class="users container">
+    2:   <ul class="user_list col">
+    3:     <% @users.each do |user| %>
+    4:       <li class="user_item row">
+    5:         <div class="u_img">
+    6:           <img src=<%= user.photo %> alt="u_img">
+  
+app/views/users/index.html.erb:3
+Started POST "/__web_console/repl_sessions/5a571c0f7388451f3e115a8bd3ee3f3a/trace" for 127.0.0.1 at 2023-11-26 01:53:49 +0500
+Started GET "/" for 127.0.0.1 at 2023-11-26 01:54:58 +0500
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:3
+  Rendered users/index.html.erb within layouts/application (Duration: 59.9ms | Allocations: 4074)
+  Rendered layout layouts/application.html.erb (Duration: 110.2ms | Allocations: 44443)
+Completed 200 OK in 115ms (Views: 88.4ms | ActiveRecord: 23.1ms | Allocations: 47254)
+
+
