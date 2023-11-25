@@ -9,7 +9,7 @@
       <a href=<%= user_url(@user.id) %>>
         <div class="user_desc col">
           <h2 class="user_name"><%= @user.name %></h2>
-          <p class="user_post_n">Number of posts: <%= @user.posts_count %></p>  
+          <p class="user_post_n">Number of posts: <%= @user.post_counter %></p>  
         </div>
       </a>
     </div> 
@@ -24,8 +24,8 @@
             <h4 class="post_title"><%= post.title %></h4>
             <p class="post_text"><%= post.text %></p>
             <p class="likes">
-              Comments: <%= post.comments_count %>, 
-              Likes: <%= post.likes_count %>
+              Comments: <%= post.comment_counter %>, 
+              Likes: <%= post.likes_counter %>
             </p>
           </div>
         </a>
