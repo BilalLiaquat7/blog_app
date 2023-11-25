@@ -18,5 +18,6 @@ class UsersController < ApplicationController
 
   def set_user
     @set_user ||= User.includes(:posts).find(params[:id])
+    @recent_posts = @user.recent_posts
   end
 end

@@ -1,10 +1,47 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  </head>
+<div class="posts container">
 
-  <body>
-    <h1>Here will be a list of posts for a given user.</h1>
-  </body>
-</html>
+  <div class="user_item row">
+    <div class="u_img">
+      <img src=<%= @user.photo %> alt="User Image">
+    </div>
+
+    <div class="user_cont">
+      <a href=<%= user_url(@user.id) %>>
+        <div class="user_desc col">
+          <h2 class="user_name"><%= @user.name %></h2>
+          <p class="user_post_n">Number of posts: <%= @user.posts_count %></p>  
+        </div>
+      </a>
+    </div> 
+  </div>
+
+  <ul class="post_list post_list_show col">
+    <% @posts.each do |post| %>
+      <li class="post_item_desc">
+
+        <a href=<%= user_post_url(user_id: @user.id, id: post.id) %>>
+          <div class="post_item">
+            <h4 class="post_title"><%= post.title %></h4>
+            <p class="post_text"><%= post.text %></p>
+            <p class="likes">
+              Comments: <%= post.comments_count %>, 
+              Likes: <%= post.likes_count %>
+            </p>
+          </div>
+        </a>
+
+        <div class="post_comments">
+          <% post.recent_comments.each do |comment| %>
+            <p class="comment"><%= comment.user.name %>: <%= comment.text %></p>
+                      <% end %>
+        </div>
+
+      </li>
+    <% end %>
+  </ul>
+
+  <div class="btn_cont">
+    <button class="btn">Pagination</button>
+  </div>
+
+</div>

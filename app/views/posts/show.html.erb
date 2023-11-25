@@ -1,10 +1,27 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  </head>
+<div class="p_desc container">
+  <div class="p_detail">
+    <div class="p_header">
+      <h4 class="post_title"><%= @post.title if @post.present? %> by <%= @post.author.name if @post&.author.present? %></h4>
+      <p class="likes">
+        Comments: <%= @post.comments_count if @post.present? %>, 
+        Likes: <%= @post.likes_count if @post.present? %>
+      </p>
+    </div>
 
-  <body>
-    <h1>Here will be a specific post for a given user.</h1>
-  </body>
-</html>
+    <div class="p_body">
+      <p><%= @post.text if @post.present? %></p>
+    </div>
+  </div>
+
+  <div class="post_comments">
+    <ul class="post_comments_list">
+      <% if @post.present? %>
+        <% @post.comments.each do |comment| %>
+          <li class="post_comments_item">
+            <p class="comment"><%= comment.user.name if comment.user.present? %>: <%= comment.text if comment.present? %></p>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+</div>
