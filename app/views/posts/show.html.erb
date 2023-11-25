@@ -12,7 +12,14 @@
       <p><%= @post.text if @post.present? %></p>
     </div>
   </div>
-
+<div class="comment-like-button">
+    <%= form_with model: @like, url: user_post_likes_path(1, @post), scope: :like do |form|%>
+      <%= form.submit 'Like', class: 's-button' %>
+    <% end %>
+    <button type="button" class="s-button">
+      <%= link_to "Comment", new_user_post_comment_path( post_id: @post.id), { class: "user-link" } %>
+    </button>
+  </div>
   <div class="post_comments">
     <ul class="post_comments_list">
       <% if @post.present? %>
