@@ -1,0 +1,19 @@
+<div class="users container">
+  <ul class="user_list col">
+    <% @set_users.each do |user| %>
+      <li class="user_item row">
+        <div class="u_img">
+          <img src=<%= user.photo %> alt="u_img">
+        </div>
+        <div class="user_cont">
+          <a href=<%= user_url(user.id) %>>
+            <div class="user_desc col">
+              <h2 class="user_name"><%= user.name %></h2>
+              <p class="user_post_n">Number of posts: <%= user.post_counter %></p>  
+            </div>
+          </a>
+        </div> 
+      </li>
+    <% end %>
+  </ul>
+</div>

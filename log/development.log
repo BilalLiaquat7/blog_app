@@ -8,3 +8,311 @@ Processing by Rails::WelcomeController#index as HTML
 Completed 200 OK in 21ms (Views: 4.8ms | ActiveRecord: 0.0ms | Allocations: 7873)
 
 
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2023-11-18 15:40:26.852701', '2023-11-18 15:40:26.852703') RETURNING "key"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateComments (20231118123053)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "comments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "text" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20231118123053') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreatePosts (20231118153157)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "posts" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "text" varchar, "comment_counter" integer, "likes_counter" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20231118153157') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateLikes (20231118153202)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "likes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20231118153202') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateUsers (20231118153211)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "photo" varchar, "bio" varchar, "post_counter" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20231118153211') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (223.6ms)[0m  [1m[35mCREATE DATABASE "blog_development" ENCODING = 'unicode'[0m
+  [1m[35m (69.6ms)[0m  [1m[35mCREATE DATABASE "blog_test" ENCODING = 'unicode'[0m
+  [1m[35m (10.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(892336952976185220)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (2.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (1.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2023-11-18 19:09:08.842634', '2023-11-18 19:09:08.842637') RETURNING "key"[0m
+Migrating to CreateComments (20231118123053)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.4ms)[0m  [1m[35mCREATE TABLE "comments" ("id" bigserial primary key, "text" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20231118123053') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePosts (20231118153157)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE TABLE "posts" ("id" bigserial primary key, "title" character varying, "text" character varying, "comment_counter" integer, "likes_counter" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20231118153157') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateLikes (20231118153202)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (7.3ms)[0m  [1m[35mCREATE TABLE "likes" ("id" bigserial primary key, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20231118153202') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateUsers (20231118153211)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "photo" character varying, "bio" character varying, "post_counter" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20231118153211') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(892336952976185220)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2023-11-25 22:54:18 +0500
+  [1m[36mActiveRecord::SchemaMigration Load (3.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/chi/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/railties-7.1.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/chi/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/railties-7.1.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.4ms | Allocations: 379)
+Completed 200 OK in 7ms (Views: 2.6ms | ActiveRecord: 0.0ms | Allocations: 4325)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-11-25 22:54:35 +0500
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 103)
+  Rendered layout layouts/application.html.erb (Duration: 140.1ms | Allocations: 98553)
+Completed 200 OK in 180ms (Views: 141.9ms | ActiveRecord: 0.0ms | Allocations: 110918)
+
+
+Started GET "/posts" for 127.0.0.1 at 2023-11-25 22:54:43 +0500
+  
+ActionController::RoutingError (No route matches [GET] "/posts"):
+  
+Started GET "/post" for 127.0.0.1 at 2023-11-25 22:54:50 +0500
+  
+ActionController::RoutingError (No route matches [GET] "/post"):
+  
+Started GET "/posts" for 127.0.0.1 at 2023-11-25 22:54:53 +0500
+  
+ActionController::RoutingError (No route matches [GET] "/posts"):
+  
+Started GET "/users/1" for 127.0.0.1 at 2023-11-25 22:55:00 +0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `set_user'
+Completed 404 Not Found in 103ms (ActiveRecord: 50.1ms | Allocations: 7860)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=1):
+  
+app/controllers/users_controller.rb:20:in `set_user'
+Started GET "/users/posts" for 127.0.0.1 at 2023-11-25 22:55:50 +0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"posts"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `set_user'
+Completed 404 Not Found in 9ms (ActiveRecord: 6.1ms | Allocations: 3450)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=posts):
+  
+app/controllers/users_controller.rb:20:in `set_user'
+Started GET "/users" for 127.0.0.1 at 2023-11-25 22:56:00 +0500
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (Duration: 1.0ms | Allocations: 102)
+  Rendered layout layouts/application.html.erb (Duration: 21.5ms | Allocations: 13818)
+Completed 200 OK in 28ms (Views: 24.9ms | ActiveRecord: 0.0ms | Allocations: 14733)
+
+
+Started GET "/users/posts" for 127.0.0.1 at 2023-11-25 22:56:04 +0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"posts"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `set_user'
+Completed 404 Not Found in 2ms (ActiveRecord: 0.2ms | Allocations: 1073)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=posts):
+  
+app/controllers/users_controller.rb:20:in `set_user'
+Started GET "/" for 127.0.0.1 at 2023-11-25 23:59:33 +0500
+  [1m[36mActiveRecord::SchemaMigration Load (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (Duration: 0.9ms | Allocations: 1598)
+  Rendered layout layouts/application.html.erb (Duration: 1.0ms | Allocations: 1724)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.0ms | Allocations: 13660)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    1: <div class="users container">
+    2:   <ul class="user_list col">
+    3:     <% @users.each do |user| %>
+    4:       <li class="user_item row">
+    5:         <div class="u_img">
+    6:           <img src=<%= user.photo %> alt="User Image">
+  
+app/views/users/index.html.erb:3
+Started GET "/users" for 127.0.0.1 at 2023-11-26 00:00:09 +0500
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (Duration: 0.8ms | Allocations: 970)
+  Rendered layout layouts/application.html.erb (Duration: 1.0ms | Allocations: 1061)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 1324)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    1: <div class="users container">
+    2:   <ul class="user_list col">
+    3:     <% @users.each do |user| %>
+    4:       <li class="user_item row">
+    5:         <div class="u_img">
+    6:           <img src=<%= user.photo %> alt="User Image">
+  
+app/views/users/index.html.erb:3
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(892336952976185220)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (2.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (2.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(892336952976185220)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2023-11-26 01:48:05 +0500
+  [1m[36mActiveRecord::SchemaMigration Load (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (Duration: 1.3ms | Allocations: 1598)
+  Rendered layout layouts/application.html.erb (Duration: 1.5ms | Allocations: 1724)
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.0ms | Allocations: 13660)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    1: <div class="users container">
+    2:   <ul class="user_list col">
+    3:     <% @users.each do |user| %>
+    4:       <li class="user_item row">
+    5:         <div class="u_img">
+    6:           <img src=<%= user.photo %> alt="u_img">
+  
+app/views/users/index.html.erb:3
+Started GET "/" for 127.0.0.1 at 2023-11-26 01:50:32 +0500
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (Duration: 0.7ms | Allocations: 1124)
+  Rendered layout layouts/application.html.erb (Duration: 0.8ms | Allocations: 1216)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 3972)
+
+
+  
+ActionView::Template::Error (undefined method `set_user' for nil:NilClass):
+    1: <div class="users container">
+    2:   <ul class="user_list col">
+    3:     <% @users.set_user do |user| %>
+    4:       <li class="user_item row">
+    5:         <div class="u_img">
+    6:           <img src=<%= user.photo %> alt="u_img">
+  
+app/views/users/index.html.erb:3
+Started GET "/" for 127.0.0.1 at 2023-11-26 01:52:20 +0500
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 1121)
+  Rendered layout layouts/application.html.erb (Duration: 0.7ms | Allocations: 1213)
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.0ms | Allocations: 3968)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    1: <div class="users container">
+    2:   <ul class="user_list col">
+    3:     <% @users.each do |user| %>
+    4:       <li class="user_item row">
+    5:         <div class="u_img">
+    6:           <img src=<%= user.photo %> alt="u_img">
+  
+app/views/users/index.html.erb:3
+Started GET "/" for 127.0.0.1 at 2023-11-26 01:53:03 +0500
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (Duration: 0.9ms | Allocations: 1125)
+  Rendered layout layouts/application.html.erb (Duration: 1.0ms | Allocations: 1217)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms | Allocations: 3973)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    1: <div class="users container">
+    2:   <ul class="user_list col">
+    3:     <% @users.each do |user| %>
+    4:       <li class="user_item row">
+    5:         <div class="u_img">
+    6:           <img src=<%= user.photo %> alt="u_img">
+  
+app/views/users/index.html.erb:3
+Started GET "/" for 127.0.0.1 at 2023-11-26 01:53:04 +0500
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 967)
+  Rendered layout layouts/application.html.erb (Duration: 0.6ms | Allocations: 1058)
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 1313)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    1: <div class="users container">
+    2:   <ul class="user_list col">
+    3:     <% @users.each do |user| %>
+    4:       <li class="user_item row">
+    5:         <div class="u_img">
+    6:           <img src=<%= user.photo %> alt="u_img">
+  
+app/views/users/index.html.erb:3
+Started POST "/__web_console/repl_sessions/5a571c0f7388451f3e115a8bd3ee3f3a/trace" for 127.0.0.1 at 2023-11-26 01:53:49 +0500
+Started GET "/" for 127.0.0.1 at 2023-11-26 01:54:58 +0500
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:3
+  Rendered users/index.html.erb within layouts/application (Duration: 59.9ms | Allocations: 4074)
+  Rendered layout layouts/application.html.erb (Duration: 110.2ms | Allocations: 44443)
+Completed 200 OK in 115ms (Views: 88.4ms | ActiveRecord: 23.1ms | Allocations: 47254)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-11-26 01:57:49 +0500
+  [1m[36mActiveRecord::SchemaMigration Load (16.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:3
+  Rendered users/index.html.erb within layouts/application (Duration: 23.2ms | Allocations: 4171)
+  Rendered layout layouts/application.html.erb (Duration: 46.7ms | Allocations: 40406)
+Completed 200 OK in 70ms (Views: 48.0ms | ActiveRecord: 4.7ms | Allocations: 52388)
+
+
+Started GET "/users/posts" for 127.0.0.1 at 2023-11-26 01:57:57 +0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"posts"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `set_user'
+Completed 404 Not Found in 22ms (ActiveRecord: 14.1ms | Allocations: 3288)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=posts):
+  
+app/controllers/users_controller.rb:20:in `set_user'
+Started GET "/users/posts/2" for 127.0.0.1 at 2023-11-26 01:58:07 +0500
+  
+ActionController::RoutingError (No route matches [GET] "/users/posts/2"):
+  
