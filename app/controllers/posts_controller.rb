@@ -13,10 +13,10 @@ class PostsController < ApplicationController
   private
 
   def set_user
-    @user ||= User.includes(:posts).find(params[:user_id])
+    @set_user ||= User.includes(:posts).find(params[:user_id])
   end
 
   def set_post
-    @post ||= @user.posts.find(params[:id])
+    @set_post ||= @user.posts.find(params[:id])
   end
 end

@@ -62,3 +62,77 @@ Migrating to CreateUsers (20231118153211)
   [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(892336952976185220)[0m
   [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2023-11-25 22:54:18 +0500
+  [1m[36mActiveRecord::SchemaMigration Load (3.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/chi/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/railties-7.1.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/chi/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/railties-7.1.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.4ms | Allocations: 379)
+Completed 200 OK in 7ms (Views: 2.6ms | ActiveRecord: 0.0ms | Allocations: 4325)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-11-25 22:54:35 +0500
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 103)
+  Rendered layout layouts/application.html.erb (Duration: 140.1ms | Allocations: 98553)
+Completed 200 OK in 180ms (Views: 141.9ms | ActiveRecord: 0.0ms | Allocations: 110918)
+
+
+Started GET "/posts" for 127.0.0.1 at 2023-11-25 22:54:43 +0500
+  
+ActionController::RoutingError (No route matches [GET] "/posts"):
+  
+Started GET "/post" for 127.0.0.1 at 2023-11-25 22:54:50 +0500
+  
+ActionController::RoutingError (No route matches [GET] "/post"):
+  
+Started GET "/posts" for 127.0.0.1 at 2023-11-25 22:54:53 +0500
+  
+ActionController::RoutingError (No route matches [GET] "/posts"):
+  
+Started GET "/users/1" for 127.0.0.1 at 2023-11-25 22:55:00 +0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `set_user'
+Completed 404 Not Found in 103ms (ActiveRecord: 50.1ms | Allocations: 7860)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=1):
+  
+app/controllers/users_controller.rb:20:in `set_user'
+Started GET "/users/posts" for 127.0.0.1 at 2023-11-25 22:55:50 +0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"posts"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `set_user'
+Completed 404 Not Found in 9ms (ActiveRecord: 6.1ms | Allocations: 3450)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=posts):
+  
+app/controllers/users_controller.rb:20:in `set_user'
+Started GET "/users" for 127.0.0.1 at 2023-11-25 22:56:00 +0500
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (Duration: 1.0ms | Allocations: 102)
+  Rendered layout layouts/application.html.erb (Duration: 21.5ms | Allocations: 13818)
+Completed 200 OK in 28ms (Views: 24.9ms | ActiveRecord: 0.0ms | Allocations: 14733)
+
+
+Started GET "/users/posts" for 127.0.0.1 at 2023-11-25 22:56:04 +0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"posts"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `set_user'
+Completed 404 Not Found in 2ms (ActiveRecord: 0.2ms | Allocations: 1073)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=posts):
+  
+app/controllers/users_controller.rb:20:in `set_user'

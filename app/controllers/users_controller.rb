@@ -13,10 +13,10 @@ class UsersController < ApplicationController
   private
 
   def set_users
-    @users ||= User.includes(:posts).all
+    @set_users ||= User.includes(:posts).all
   end
 
   def set_user
-    @user ||= User.includes(:posts).find(params[:id])
+    @set_user ||= User.includes(:posts).find(params[:id])
   end
 end
