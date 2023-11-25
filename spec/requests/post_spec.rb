@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe 'Posts', type: :request do
-  let(:user) { User.create(name: 'Binyam', photo: 'url', bio: 'I am a software developer.') }
-  let(:post) { Post.create(author: user, title: 'Hello', text: 'Good career choice.', comments_count: 3, likes_count: 4) }
+  let(:user) { User.create(name: 'Bilal Liaquat', photo: 'url', bio: 'I am a software Engineer.') }
+  let(:post) { Post.create(author: user, title: 'Hi', text: 'Good career choice.', comments_count: 2, likes_count: 2) }
 
   describe 'GET /index' do
     it 'returns http success for posts#index action' do

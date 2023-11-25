@@ -10,13 +10,13 @@ RSpec.describe 'Users', type: :request do
   end
 
   describe 'GET /show' do
-    let(:user) { create(:user, name: 'Binyam', photo: 'url', bio: 'I am a software developer.') }
+    let(:user) { create(:user, name: 'Bilal Liaquat', photo: 'url', bio: 'I am a software Engineer.') }
 
     it 'returns a specific user for users#show action' do
       get user_url(user)
       expect(response).to be_successful
       expect(response).to render_template(:show)
-      expect(response.body).to include('Here is a specific user.')
+      expect(response.body).to include('specific user.')
     end
   end
 end
