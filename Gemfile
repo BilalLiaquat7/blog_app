@@ -70,7 +70,4 @@ end
 
 gem 'rubocop', '>= 1.0', '< 2.0'
 gem 'will_paginate'
-<<<<<<< HEAD
-
-=======
->>>>>>> 60c5c2b... linters fixed
+gem 'devise'
