@@ -1,27 +1,42 @@
-<div class="p_desc container">
-  <div class="p_detail">
-    <div class="p_header">
-      <h4 class="post_title"><%= @post.title if @post.present? %> by <%= @post.author.name if @post&.author.present? %></h4>
-      <p class="likes">
-        Comments: <%= @post.comments_count if @post.present? %>, 
-        Likes: <%= @post.likes_count if @post.present? %>
+<div class="post_desc container">
+<h1>Here is a specific post for a given user</h1>
+  <div class="post_detail">
+    <div class="post_header">
+      <h4 class="post_title"><%= @post.title %> by <%= @post.author.name %></h4>
+      <p class="comments_likes">
+        Comments: <%= @post.comments_count %>, 
+        Likes: <%= @post.likes_count %>
       </p>
     </div>
 
-    <div class="p_body">
-      <p><%= @post.text if @post.present? %></p>
+    <div class="post_body">
+      <p><%= @post.text %></p>
     </div>
+  </div>
+
+  <div class="comment-like-button">
+    <%= form_with model: @like, url: user_post_likes_path(@post.author, @post), scope: :like do |form|%>
+      <%= form.submit 'Like', class: 'single-button' %>
+    <% end %>
+    <button type="button" class="single-button">
+      <%= link_to "Comment", new_user_post_comment_path(post_id: @post.id), { class: "user-link" } %>
+    </button>
   </div>
 
   <div class="post_comments">
     <ul class="post_comments_list">
-      <% if @post.present? %>
+      <% if @post.comments.length == 0 %>
+        <li class="post_comments_item">
+          <p class="comment">No comment</p>
+        </li>
+      <% else %>
         <% @post.comments.each do |comment| %>
           <li class="post_comments_item">
-            <p class="comment"><%= comment.user.name if comment.user.present? %>: <%= comment.text if comment.present? %></p>
+            <p class="comment"><%= comment.user.name %>: <%= comment.text %></p>
           </li>
         <% end %>
       <% end %>
     </ul>
   </div>
+
 </div>
