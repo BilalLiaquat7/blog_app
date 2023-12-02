@@ -47,6 +47,7 @@ gem 'bootsnap', require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri windows]
+  gem 'rails-controller-testing'
   gem 'rspec-rails'
 end
 
@@ -64,7 +65,10 @@ end
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem 'capybara'
-  gem 'selenium-webdriver'
+  gem 'webdrivers'
 end
 
+gem 'devise'
+gem 'letter_opener'
 gem 'rubocop', '>= 1.0', '< 2.0'
+gem 'will_paginate'

@@ -1,0 +1,39 @@
+<div class="user_show container">
+<h1>Here is a specific user</h1>
+  <div class="user_item row">
+    <div class="user_img">
+      <img src=<%= @user.photo %> alt="user_img">
+    </div>
+
+    <div class="user_desc_cont">
+      <div class="user_desc col">
+        <h2 class="user_name">
+          <%= link_to @user.name, user_path(@user) %>
+        </h2>
+        <p class="user_post_number">Number of posts: <%= @user.posts_count %></p>  
+      </div>
+    </div> 
+  </div>
+
+  <div class="user_bio">
+    <p class="show_title">Bio</p>
+    <p class="bio_detail"><%= @user.bio %></p>
+  </div>
+
+  <ul class="post_list col">
+    <% @recent_posts.each do |post| %>
+      <li class="post_item">
+        <h4 class="post_title"><%= link_to post.title, user_post_path(@user, post) %></h4>
+        <p class="post_text"><%= post.text %></p>
+        <p class="comments_likes">
+          Comments: <%= post.comments_count %>,
+          Likes: <%= post.likes_count %>
+        </p>
+      </li>
+    <% end %>
+  </ul>
+
+  <div class="btn_cont">
+    <button class="btn"><%= link_to 'See all posts', user_posts_path(@user) %></button>
+  </div>
+</div>

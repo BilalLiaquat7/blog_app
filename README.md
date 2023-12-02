@@ -97,6 +97,11 @@ Contributions, issues, and feature requests are welcome!
 Feel free to check the issues page.
 [issues page](https://github.com/sheezu900/blog-rails/issues).
 
+## ⭐️ Show your support <a name="support"></a>
+
+If you like this project please give it a star.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- ACKNOWLEDGEMENTS -->
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
